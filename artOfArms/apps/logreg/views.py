@@ -19,7 +19,7 @@ def register(request):
             newUser = User.objects.create(username=request.POST['register_username'], email=request.POST['register_email'], password=hashed_password)
             request.session['username'] = request.POST['register_username']
             request.session['activeuser'] = newUser.id
-            return redirect('/dashboard') #update this when using this app in a different project
+            return redirect('/art_of_arms') #update this when using this app in a different project
 
 def login(request):
     if request.method == "POST":
@@ -32,5 +32,5 @@ def login(request):
             request.session['username'] = request.POST['login_username']
             currentUser = User.objects.filter(username=request.POST['login_username'])
             request.session['activeuser'] = currentUser[0].id
-            return redirect('/dashboard') #update this when using this app in a different project
+            return redirect('/art_of_arms') #update this when using this app in a different project
 
